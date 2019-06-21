@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculadora</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script src="js/jquery.js"></script>
+	<link rel="stylesheet" href="calculadorastyles.css">
+</head>
+<body>
+	
+	<div class="container">
+
+
+		<div class = "pantallares">
+			<div class = "cuadrogrande" id ="display" style="color: white">0</div>
+		</div>
+
+		<div class = "row1">
+			<div  class="cuadro limpiar" id="C" data-action ="limpiar">C</div>
+			<div class="cuadro" >+/-</div>
+			<div class="cuadro" >%</div>
+			<div class="cuadro division" id="/"data-action = "dividir" style="background-color: orange; color: white">/</div>
+		</div>
+		<div class = "row2">
+			<div class="cuadro" id="7" data-action = "numero">7</div>
+			<div class="cuadro" id="8" data-action = "numero">8</div>
+			<div class="cuadro" id="9" data-action = "numero">9</div>
+			<div class="cuadro multiplicacion" id="x" data-action = "multiplicar" style="background-color: orange; color: white">x</div>
+		</div>
+		<div class = "row3">
+			<div class="cuadro" id="4" data-action = "numero">4</div>
+			<div class="cuadro" id="5" data-action = "numero">5</div>
+			<div class="cuadro" id="6" data-action = "numero">6</div>
+			<div class="cuadro resta" id="-"data-action = "restar" style="background-color: orange; color: white">-</div>
+		</div>
+		<div class = "row4">
+			<div class="cuadro" id="1" data-action = "numero">1</div>
+			<div class="cuadro" id="2" data-action = "numero">2</div>
+			<div class="cuadro" id="3" data-action = "numero">3</div>
+			<div class="cuadro suma" id="+" data-action ="sumar" style="background-color: orange; color: white">+</div>
+		</div>
+		<div class = "row5">
+			<div class="contenedorzero">
+				<div class="cuadro" id="0" data-action = "numero">0</div>
+			</div>
+			<div class="contenedorpuntoigual">
+				<div class="cuadro decimal" id=".">.</div>
+				<div class="cuadro resultado" id = "=" data-action = "resultar" style="background-color: orange; color: white">=</div>
+			</div>
+		
+		</div>
+
+
+
+
+    </div>
+
+</body>
+</html>
+
+<script>
+	
+
+
+
+/*$( document ).ready(function() {
+    alert( "ready!" );
+});*/
+
+
+
+/*let displayednum = document.getElementById("display").innerHTML 
+let operacion;
+let num2;
+let num;
+*/
+
+
+  $(".cuadro").click(function() {
+
+      let num = $(this).attr("id");
+      let displayednum = document.getElementById("display").innerHTML 
+let operacion;
+let num2;
+let num;
+           
+	{
+      if (num == "C" )
+      {
+      	document.getElementById("display").innerHTML = ""
+      }
+     	
+	  else if  (num == 0|| num == 1 ||num == 2 || num ==3|| num ==4||num ==5 ||
+	  	num ==6 || num ==7||num ==8 || num ==9) 
+	  {
+	    document.getElementById("display").innerHTML += num 
+	    	let displayednum = num;
+	  }
+
+	  else if (num == ".") 
+	  { 
+      	 document.getElementById("display").innerHTML += '.'
+      	 	let displayednum = num;
+	  }
+
+	  else if (num == "+")
+	  {
+	  	
+	  	document.getElementById("display").innerHTML = ''
+	  	let displayednum = num;
+	  	operacion = "+"
+
+	  }
+
+	   else if (num == "-")
+	  {
+		
+	  	document.getElementById("display").innerHTML = ''
+		let displayednum = num;
+		operacion = "-";
+	  }
+
+	   else if (num == "x")
+	  {
+	  	
+	  	document.getElementById("display").innerHTML = ''
+	  	let displayednum = num;
+	  	operacion = "x";
+	  }
+
+	   else if (num == "/")
+
+	  {
+	 
+	  	document.getElementById("display").innerHTML = ''
+	  	let displayednum = num;
+	  	operacion = "/";
+
+	  }
+
+	  else if (num == "=")
+
+	  {
+	  	let displayednum = num2;
+	  	calcular();
+	  	document.getElementById("display").innerHTML = resultado
+	  }
+
+
+
+	}
+
+   });
+
+
+    
+/*Funcion para calcular operaciones*/
+
+ /* function calcular () {
+   	
+   	let resultado =""
+
+  	if (document.getElementById("+")){
+  		resultado = parseFloat(num) + parseFloat(num2) 
+  	} 
+
+  	else if (document.getElementById("-")){
+  		resultado = parseFloat(num) - parseFloat(num2)
+  	}
+  	else if (document.getElementById("x")){
+  		resultado = parseFloat(num) * parseFloat(num2)
+  	}
+
+  	else if (document.getElementById("/")){
+  		resultado = parseFloat(num) / parseFloat(num2)
+  	}
+
+  	return resultado   
+  }
+  */
+
+function calcular(){
+  let resultado = 0
+  switch(operacion) {
+    case "+":
+     resultado = parseFloat(num) + parseFloat(num2);
+      break;
+    case "-":
+        resultado = parseFloat(num) - parseFloat(num2);
+        break;
+    case "x":
+      resultado = parseFloat(num) * parseFloat(num2);
+      break;
+    case "/":
+      resultado = parseFloat(num) / parseFloat(num2);
+      break;
+  }
+  return resultado;
+}
+
+
+
+
+
+</script>
